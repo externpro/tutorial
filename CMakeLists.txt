@@ -11,3 +11,10 @@ add_executable(app main.cpp)
 target_link_libraries(app PRIVATE
     fmt::fmt
     nlohmann_json::nlohmann_json)
+set_target_properties(app PROPERTIES DEBUG_POSTFIX -d)
+
+include(GNUInstallDirs)
+set(CMAKE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
+set(targetsFile ${PROJECT_NAME}-targets)
+install(TARGETS app EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} NAMESPACE bar::)
