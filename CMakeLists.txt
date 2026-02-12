@@ -4,12 +4,14 @@ project(MyProject)
 
 # Find packages
 find_package(fmt REQUIRED)
+find_package(spdlog REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 # Link libraries
 add_executable(app main.cpp)
 target_link_libraries(app PRIVATE
     fmt::fmt
+    spdlog::spdlog
     nlohmann_json::nlohmann_json)
 set_target_properties(app PROPERTIES DEBUG_POSTFIX -d)
 

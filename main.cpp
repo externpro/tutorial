@@ -1,5 +1,6 @@
 // main.cpp
 #include <fmt/core.h>
+#include <spdlog/spdlog.h>
 #include <nlohmann/json.hpp>
 
 int main() {
@@ -11,6 +12,10 @@ int main() {
     {"name", "foo"},
     {"type", "package manager"}
   };
+  fmt::print("{}\n", data.dump());
+
+  // Using spdlog library
+  spdlog::info("Closing app");
 
   return 0;
 }
