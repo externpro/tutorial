@@ -28,7 +28,7 @@ index 16c3f01..083db72 100644
 -include(GNUInstallDirs)
 -set(CMAKE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
  set(targetsFile ${PROJECT_NAME}-targets)
-+xpExternPackage(REPO_NAME tutorial NAMESPACE xp
++xpExternPackage(REPO_NAME tutorial
 +  TARGETS_FILE ${targetsFile} EXE app
 +  BASE v1.0 XPDIFF "patch" PVT_DEPS fmt spdlog nlohmann_json
 +  WEB "https://github.com/smanders/tutorial" UPSTREAM "github.com/externpro/tutorial"
@@ -37,7 +37,7 @@ index 16c3f01..083db72 100644
 +  )
  install(TARGETS app EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_BINDIR})
 -install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} NAMESPACE bar::)
-+install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} NAMESPACE xp::)
++install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} NAMESPACE tutorial::)
 -- 
 2.52.0
 
